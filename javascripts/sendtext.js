@@ -22,8 +22,8 @@ var TextTransmitter = (function() {
             return;
         }
 
-        payload = CryptoJS.AES.encrypt(originalText, "SuperSecretPassPhrase");
-        
+        //payload = CryptoJS.AES.encrypt(originalText, "SuperSecretPassPhrase");
+
         transmit.transmit(Quiet.str2ab(payload));
     };
 

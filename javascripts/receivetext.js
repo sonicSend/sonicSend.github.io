@@ -3,7 +3,10 @@ var TextReceiver = (function() {
 
     function onReceive(recvPayload, recvObj) {
         recvObj.content = Quiet.mergeab(recvObj.content, recvPayload);
-        recvObj.target.textContent = CryptoJS.AES.decrypt(Quiet.ab2str(recvObj.content), "SuperSecretPassPhrase");
+        var originalText = Quiet.ab2str(recvObj.content);
+        var encryptedText = CryptoJS.AES.decrypt(originalText, "SuperSecretPassPhrase");
+        //recvObj.target.textContent = encryptedText;
+        recvObj.target.textContent = originalText;
         recvObj.successes++;
         var total = recvObj.failures + recvObj.successes
         var ratio = recvObj.failures/total * 100;
