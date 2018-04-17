@@ -6,7 +6,7 @@ var QuietInitializer = (function() {
     });
 
     function onDOMLoad() {
-        var host = "quiet.github.io";
+        var host = "sonicsend.github.io";
         if ((host == window.location.host) && (window.location.protocol != "https:"))
             window.location.protocol = "https";
     };
